@@ -22,3 +22,21 @@ print(df.loc['G2'].loc[2]['B'])
 print(df.xs(1, level='Num'))
 
 '-----------------------------------------------------------------------'
+
+# Missing Data
+d = {'A': [1, 2, np.nan], 'B': [5, np.nan, np.nan], 'C': [1, 2, 3]}
+df = pd.DataFrame(d)
+print(df)
+
+# Explore the dropna method
+df.dropna()
+print(df)
+# NOTE: dropna with axis 0 drops rows, and axis=1 drops columns with na values
+df.dropna(axis=1)
+print(df)
+# NOTE: Thresh value will drop rows/columns with more than specified non-na values
+
+# Explore the fillna method
+print(df['A'].fillna(value=df['A'].mean()))
+
+'-----------------------------------------------------------------------'
