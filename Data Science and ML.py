@@ -65,3 +65,23 @@ print(df.groupby('Company').describe())
 print(df.groupby('Company').describe().transpose())
 
 '-----------------------------------------------------------------------'
+
+# Learning Merging, Joining, and Concatenating data frames
+
+# Concatenation essentially glues together dataframes. Keep in mind that
+# dimensions should match along the axis you are concatenating on.
+# You can use pd.concat and pass in a list of DFs to concatenate together
+# Example: pd.concat([df1, df2, df3])
+
+# Pandas is capable of using the merge function to do merge logic.
+# It's very similar to merging SQL tables together.
+# Using the pd.merge function, you can merge DFs together.
+# Example: pd.merge(df1, df2, how='inner', on='key')
+
+# Joining is a convenient method for combining the columns of two
+# potentially differently-indexed DFs into a single resulting DF.
+# You can think of this as the same thing as merge, except the keys you
+# want to join on are on your index instead of a column.
+
+'-----------------------------------------------------------------------'
+
