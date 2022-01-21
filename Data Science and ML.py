@@ -40,3 +40,28 @@ print(df)
 print(df['A'].fillna(value=df['A'].mean()))
 
 '-----------------------------------------------------------------------'
+
+# Explore the groupby method to group rows of data together
+# NOTE: Groupby allows you to group together rows based off of a column
+# and perform an aggregate function on them
+
+data = {'Company': ['GOOG', 'GOOG', 'MSFT', 'MSFT', 'FB', 'FB'],
+        'Person': ['Midi', 'Sue', 'Cole', 'Jen', 'Schmegan', 'Luxi'],
+        'Sales': [200, 120, 340, 124, 243, 350]}
+df = pd.DataFrame(data)
+print(df)
+
+byComp = df.groupby('Company')
+print(byComp.mean())
+print(byComp.sum())
+print(byComp.std())
+
+# Won't usually create a groupby variable, but will instead do a one-liner
+print(df.groupby('Company').sum().loc['GOOG'])
+
+# Using the describe method to give lots of useful information
+print(df.groupby('Company').describe())
+# If you don't prefer the output format, use .transpose to change it
+print(df.groupby('Company').describe().transpose())
+
+'-----------------------------------------------------------------------'
