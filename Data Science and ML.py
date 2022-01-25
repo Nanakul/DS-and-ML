@@ -85,3 +85,20 @@ print(df.groupby('Company').describe().transpose())
 
 '-----------------------------------------------------------------------'
 
+# Learning about operations
+
+df = pd.DataFrame({'col1': [1, 2, 3, 4],
+                   'col2': [222, 444, 666, 222],
+                   'col3': ['abc', 'def', 'ghi', 'jkl']})
+
+print(df.head())
+
+# There are three main useful methods concerned with finding unique values in a data frame.
+# If you want to find all unique values in a column, you can use the .unique() method.
+
+print(df['col2'].unique())
+# NOTE: .unique() method returns a list of all unique values. If you want the number of unique values,
+# use .nunique() method, and it will return the total of unique values.
+
+# If you want a table of the unique values AND how many times they show up, use the value_counts() method
+print(df['col2'].value_counts())
