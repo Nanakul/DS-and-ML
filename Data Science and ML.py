@@ -144,6 +144,8 @@ print(df)
 # Use the pivot_table() method to create a pivot table out of the select DF.
 print(df.pivot_table(values='D', index=['A', 'B'], columns=['C']))
 
+'-----------------------------------------------------------------------'
+
 # Explore reading and writing files with pandas.
 # Use the .read_csv() method to read a csv file
 print(pd.read_csv('example.csv'))
@@ -154,3 +156,11 @@ print(df)
 
 # Use .to_csv() method to write to a csv file. Use index=False to get rid of old index.
 df.to_csv('Output.csv', index=False)
+
+# To read from excel files, you need to use the .read_excel() method and pass in the
+# xlsx file name, and the sheet name of the data within the excel file itself.
+# Example: pd.read_excel('Excel_Sample.xlsx', sheetname='Sheet1')
+
+# To write to an excel file, it's the same process as writing to a csv. You must create
+# a DF, then use the .to_excel() method to write it.
+# Example: df.to_excel('Excel_Sample2.xlsx', sheet_name='Sheet1')
