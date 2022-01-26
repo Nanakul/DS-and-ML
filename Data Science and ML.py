@@ -164,3 +164,6 @@ df.to_csv('Output.csv', index=False)
 # To write to an excel file, it's the same process as writing to a csv. You must create
 # a DF, then use the .to_excel() method to write it.
 # Example: df.to_excel('Excel_Sample2.xlsx', sheet_name='Sheet1')
+
+# To read from an HTML website, store the following into a variable and use .read_html() method.
+# Example: data = pd.read_html('https://www.fdic.gov/bank/individual/failed/banklist.html')
