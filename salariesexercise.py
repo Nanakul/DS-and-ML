@@ -39,4 +39,9 @@ print(salaries['JobTitle'].nunique())
 # What are the top 5 most common jobs? == TO, SN, RN, Pub Aide, Police Office 3
 print(salaries['JobTitle'].value_counts())
 
-# 
+# How many Job Titles were represented by only one person in 2013? == 202
+print(sum(salaries[salaries['Year'] == 2013]['JobTitle'].value_counts() == 1))
+
+# How many people have the word 'Chief' in their job title? == 627
+print(sum(salaries['JobTitle'].str.lower().str.contains('chief')))
+
