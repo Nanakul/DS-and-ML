@@ -137,3 +137,6 @@ dmypy.json
 .idea/misc.xml
 .idea/modules.xml
 .idea/vcs.xml
+.idea/csv-plugin.xml
+example.csv
+Output.csv

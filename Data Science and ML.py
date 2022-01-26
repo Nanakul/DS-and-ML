@@ -144,3 +144,13 @@ print(df)
 # Use the pivot_table() method to create a pivot table out of the select DF.
 print(df.pivot_table(values='D', index=['A', 'B'], columns=['C']))
 
+# Explore reading and writing files with pandas.
+# Use the .read_csv() method to read a csv file
+print(pd.read_csv('example.csv'))
+
+# To write to a csv, you must first create a df of the csv file.
+df = pd.read_csv('example.csv')
+print(df)
+
+# Use .to_csv() method to write to a csv file. Use index=False to get rid of old index.
+df.to_csv('Output.csv', index=False)
