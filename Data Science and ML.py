@@ -86,7 +86,6 @@ print(df.groupby('Company').describe().transpose())
 '-----------------------------------------------------------------------'
 
 # Learning about operations
-
 df = pd.DataFrame({'col1': [1, 2, 3, 4],
                    'col2': [222, 444, 666, 222],
                    'col3': ['abc', 'def', 'ghi', 'jkl']})
@@ -95,8 +94,8 @@ print(df.head())
 
 # There are three main useful methods concerned with finding unique values in a data frame.
 # If you want to find all unique values in a column, you can use the .unique() method.
-
 print(df['col2'].unique())
+
 # NOTE: .unique() method returns a list of all unique values. If you want the number of unique values,
 # use .nunique() method, and it will return the total of unique values.
 
@@ -116,13 +115,17 @@ print(df['col2'].apply(times2))
 
 # .apply() method is especially powerful when combined with lambda expressions. Example for the prior
 # function that was defined.
-
 print(df['col2'].apply(lambda x: x * 2))
 
 # To delete a column, use the .drop() method. NOTE: changes made won't affect original DF unless you set
 # inplace == True.
-
 print(df.drop('col1', axis=1))
 print(df)
+
+# You can use the df.columns() method to figure out what the names of each column is.
+print(df.columns)
+
+# Use the .sort_values() method to sort the data by specific column
+print(df.sort_values('col2'))
 
 
