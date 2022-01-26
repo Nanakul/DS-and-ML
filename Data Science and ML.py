@@ -113,3 +113,9 @@ def times2(x):
 
 
 print(df['col2'].apply(times2))
+
+# .apply() method is especially powerful when combined with lambda expressions. Example for the prior
+# function that was defined.
+
+print(df['col2'].apply(lambda x: x * 2))
+
