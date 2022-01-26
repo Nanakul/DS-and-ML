@@ -102,3 +102,14 @@ print(df['col2'].unique())
 
 # If you want a table of the unique values AND how many times they show up, use the value_counts() method
 print(df['col2'].value_counts())
+
+
+# Exploring the .apply() method which allows you to apply a function to pandas DFs.
+# Consider the following function:
+
+
+def times2(x):
+    return x * 2
+
+
+print(df['col2'].apply(times2))
