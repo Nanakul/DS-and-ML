@@ -119,3 +119,10 @@ print(df['col2'].apply(times2))
 
 print(df['col2'].apply(lambda x: x * 2))
 
+# To delete a column, use the .drop() method. NOTE: changes made won't affect original DF unless you set
+# inplace == True.
+
+print(df.drop('col1', axis=1))
+print(df)
+
+
