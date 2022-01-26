@@ -140,3 +140,4 @@ dmypy.json
 .idea/csv-plugin.xml
 example.csv
 Output.csv
+Salaries.csv
