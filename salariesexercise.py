@@ -21,3 +21,9 @@ print(salaries['OvertimePay'].max())
 # Job title of JOSEPH DRISCOLL? == CAPTAIN, FIRE SUPPRESSION
 print(salaries[salaries['EmployeeName'] == 'JOSEPH DRISCOLL'])
 
+# How much does JOSEPH DRISCOLL make, including benefits? == 270324.91
+print(salaries[salaries['EmployeeName'] == 'JOSEPH DRISCOLL']['TotalPayBenefits'])
+
+# What's the name of the highest paid person (including benefits)? == NATHANIEL FORD
+print(salaries.sort_values(by='TotalPayBenefits', ascending=False))
+
