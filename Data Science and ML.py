@@ -128,4 +128,8 @@ print(df.columns)
 # Use the .sort_values() method to sort the data by specific column
 print(df.sort_values('col2'))
 
+# You can use the isnull() method to find null values. For this specific example, there will be none.
+print(df.isnull())
+
+# Exploring pivot tables
 
