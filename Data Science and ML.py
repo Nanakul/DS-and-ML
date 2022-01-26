@@ -132,4 +132,15 @@ print(df.sort_values('col2'))
 print(df.isnull())
 
 # Exploring pivot tables
+# Creating new dataframe
+data = {'A': ['foo', 'foo', 'foo', 'bar', 'bar', 'bar'],
+        'B': ['one', 'one', 'two', 'two', 'one', 'one'],
+        'C': ['x', 'y', 'x', 'y', 'x', 'y'],
+        'D': [1, 2, 3, 4, 3, 2]}
+
+df = pd.DataFrame(data)
+print(df)
+
+# Use the pivot_table() method to create a pivot table out of the select DF.
+print(df.pivot_table(values='D', index=['A', 'B'], columns=['C']))
 
