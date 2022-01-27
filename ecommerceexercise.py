@@ -37,8 +37,11 @@ print(ecom[ecom['Lot'] == '90 WT']['Purchase Price'])
 print(ecom[ecom['Credit Card'] == 4926535242672853]['Email'])
 
 # How many people have Amex as their credit card and made a purchase above 95$?
+print(ecom[(ecom['CC Provider'] == 'American Express') &
+           (ecom['Purchase Price'] > 95)].count())
 
 # How many people have a credit card that expires in 2025?
+print(sum(ecom['CC Exp Date'].str.contains('/25')))
 
 # What are the top 5 most popular email providers/hosts (gmail, yahoo, etc)?
-
+print(ecom['Email'].apply(lambda email: email.split('@')[1]).value_counts().head(5))
