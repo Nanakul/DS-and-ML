@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 from numpy.random import randn
+import matplotlib.pyplot as plt
 
 # Index Levels
 outside = ['G1', 'G1', 'G1', 'G2', 'G2', 'G2']
@@ -167,3 +168,16 @@ df.to_csv('Output.csv', index=False)
 
 # To read from an HTML website, store the following into a variable and use .read_html() method.
 # Example: data = pd.read_html('https://www.fdic.gov/bank/individual/failed/banklist.html')
+
+'-----------------------------------------------------------------------'
+
+# Learning MatPlotLib
+# Create some data to graph
+x = np.linspace(0, 5, 11)
+y = x ** 2
+
+# Creating a graph using the functional method with matplotlib.
+# NOTE: When you want to show the graph, remember to use the plt.show() line.
+plt.plot(x, y)
+# plt.show()
+
