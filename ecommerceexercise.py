@@ -26,12 +26,15 @@ print(ecom[ecom['Job'] == 'Lawyer'].count())
 print(ecom['AM or PM'].value_counts())
 
 # What are the 5 most common Job Titles?
+print(ecom['Job'].value_counts().head(5))
 
 # Someone made a purchase that came from Lot: '90 WT'
 # What was the purchase price for this transaction?
+print(ecom[ecom['Lot'] == '90 WT']['Purchase Price'])
 
 # What's the email of the person with the following credit card number?
 # '4926535242672853'
+print(ecom[ecom['Credit Card'] == 4926535242672853]['Email'])
 
 # How many people have Amex as their credit card and made a purchase above 95$?
 
