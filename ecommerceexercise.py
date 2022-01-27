@@ -18,3 +18,24 @@ print(ecom['Purchase Price'].min())
 
 # How many people have 'en' as their language of choice on the website?
 print(ecom[ecom['Language'] == 'en'].count())
+
+# How many people have the job title of Lawyer?
+print(ecom[ecom['Job'] == 'Lawyer'].count())
+
+# How many people made the purchase during the AM vs PM?
+print(ecom['AM or PM'].value_counts())
+
+# What are the 5 most common Job Titles?
+
+# Someone made a purchase that came from Lot: '90 WT'
+# What was the purchase price for this transaction?
+
+# What's the email of the person with the following credit card number?
+# '4926535242672853'
+
+# How many people have Amex as their credit card and made a purchase above 95$?
+
+# How many people have a credit card that expires in 2025?
+
+# What are the top 5 most popular email providers/hosts (gmail, yahoo, etc)?
+
