@@ -191,4 +191,28 @@ plt.plot(x, y, 'r')
 plt.subplot(1, 2, 2)
 plt.plot(y, x, 'b')
 
+# Creating graphs using the object-oriented method (much better) method with matplotlib.
+# The main idea with OO method is to create figure objects and then call methods off of this.
+# First, create an object. Imagine it's your blank canvas.
+fig = plt.figure()
+# Now add Axes to the object. Takes in a list of 4 arguements: Left, bottom, width, and height
+# that range from 0 to 1. Basically the % of the blank canvas you want to make.
+axes = fig.add_axes([0.1, 0.1, 0.8, 0.8])
+axes.plot(x, y)
+axes.set_xlabel('X Axis')
+axes.set_ylabel('Y Axis')
+axes.set_title('Data of X and Y')
+
+# Plotting another set of data within the same canvas.
+fig = plt.figure()
+axes1 = fig.add_axes([0.1, 0.1, 0.8, 0.8])
+axes2 = fig.add_axes([0.2, 0.5, 0.4, 0.3])
+
+axes1.plot(x, y)
+axes2.plot(y, x)
+
+# Add titles to the separate plots
+axes1.set_title('Data X Y')
+axes2.set_title('Data Y X')
+
 plt.show()
