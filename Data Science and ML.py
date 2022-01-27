@@ -179,5 +179,16 @@ y = x ** 2
 # Creating a graph using the functional method with matplotlib.
 # NOTE: When you want to show the graph, remember to use the plt.show() line.
 plt.plot(x, y)
-# plt.show()
 
+# Adding titles and labels to the graph.
+plt.xlabel('X Axis')
+plt.ylabel('Y Axis')
+plt.title('Data')
+
+# Putting multi-plots on the same canvas
+plt.subplot(1, 2, 1)
+plt.plot(x, y, 'r')
+plt.subplot(1, 2, 2)
+plt.plot(y, x, 'b')
+
+plt.show()
