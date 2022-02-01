@@ -229,4 +229,10 @@ axes[0].set_title('First plot')
 
 axes[1].plot(y, x)
 axes[1].set_title('Second plot')
+
+# Exploring figure size, aspect ratio, and DPI
+fig2 = plt.figure(figsize=(3, 2))
+ax = fig2.add_axes([.1, .1, 1, 1])
+ax.plot(x, y)
+
 plt.show()
