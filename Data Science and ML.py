@@ -215,4 +215,13 @@ axes2.plot(y, x)
 axes1.set_title('Data X Y')
 axes2.set_title('Data Y X')
 
+
+# Creating subplots using the same OO programming
+# NOTE: if more rows and cols of graphs, say 3 and 3, you can use plt.tight_layout() method to get rid of overlap.
+# In this case, 'axes' is an list type, meaning you can iterate through them.
+fig, axes = plt.subplots(nrows=1, ncols=2)
+
+for current_ax in axes:
+    current_ax.plot(x, y)
+
 plt.show()
