@@ -41,3 +41,8 @@ row_range = ws[1:5]
 print(row_range)
 
 # Iterate through columns and rows.
+for row in ws.iter_rows(min_row=1, max_col=3, max_row=2, values_only=True):
+    for cell in row:
+        print(cell)
+
+wb.save('regions.xlsx')
