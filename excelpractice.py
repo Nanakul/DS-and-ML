@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from openpyxl.workbook import Workbook
 
 # Load/Save data with pandas
@@ -52,3 +53,16 @@ print(df_csv.groupby(['Conditional']).mean())
 
 # Sort data by Salary
 print(df_csv.groupby(['Conditional']).mean().sort_values('Salary'))
+
+# Cleaning data
+df_csv = df_csv.set_index('City')
+print(df_csv.loc['Riverside'])
+
+# Read everyone's first name and use a string function to split by spaces.
+df_csv.Last = df_csv.Last.str.split(expand=True)
+print(df_csv)
+
+# If there is a NaN value, you can replace it with the following line:
+# df_csv = df_csv.replace(np.nan, 'N/A', regex=True)
+
+to_excel = df_csv.to_excel('modified.xlsx')
