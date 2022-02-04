@@ -22,3 +22,7 @@ active_sheet = wb2.active
 # Access the value at cell A1
 cell = active_sheet['A1']
 print(cell.value)
+active_sheet['A1'] = 'REGION'
+
+# Save modified excel sheet
+wb2.save('modified_regions.xlsx')
