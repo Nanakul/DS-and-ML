@@ -2,6 +2,7 @@ from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
 from openpyxl.styles import Font, colors, Color, Alignment, PatternFill, GradientFill, Border, Side
 from openpyxl.styles import NamedStyle
+import openpyxl
 
 # Create a new workbook
 wb = Workbook()
@@ -83,3 +84,17 @@ for col in ws.iter_cols(min_col=8, min_row=1, max_col=30, max_row=30):
     count += 1
 
 wb.save('highlight.xlsx')
+
+wb = openpyxl.Workbook()
+ws = wb.active
+
+# Create a simple data set
+data = [['Food', 'Price'],
+        ['Cheeseburger', '2.00'],
+        ['Chicken Tendies', '5.00'],
+        ['Chicken Caesar Salad', '8.00'],
+        ['Pepperoni Pizza', '2.50']]
+
+# Append this data set to the worksheet using a for loop.
+for rows in data:
+    ws.append(rows)
