@@ -1,5 +1,7 @@
 from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
+from openpyxl.styles import Font, colors, Color, Alignment, PatternFill, GradientFill, Border, Side
+from openpyxl.styles import NamedStyle
 
 # Create a new workbook
 wb = Workbook()
@@ -46,3 +48,23 @@ for row in ws.iter_rows(min_row=1, max_col=3, max_row=2, values_only=True):
         print(cell)
 
 wb.save('regions.xlsx')
+
+wb = Workbook()
+ws = wb.active
+
+# Fill worksheet with integers
+for i in range(1, 20):
+    ws.append(range(300))
+
+# Merge and then unmerge A1 to B5
+ws.merge_cells('A1:B5')
+ws.unmerge_cells('A1:B5')
+ws.merge_cells(start_row=2, start_column=2, end_row=5, end_column=5)
+
+cell = ws['B2']
+cell.font = Font(color=colors.BLUE, size=20, italic=True)
+cell.value = 'Merged Cell'
+cell.alignment = Alignment(horizontal='right', vertical='bottom')
+cell.fill = GradientFill(stop=('000000', 'FFFFFF'))
+
+wb.save('text.xlsx')
