@@ -46,3 +46,9 @@ df_csv['Conditional'] = False
 # Change Conditional column to True IF Salary < 60000
 df_csv.loc[df_csv['Salary'] < 60000, 'Conditional'] = True
 print(df_csv)
+
+# Groupby Conditional column and also calculate the mean.
+print(df_csv.groupby(['Conditional']).mean())
+
+# Sort data by Salary
+print(df_csv.groupby(['Conditional']).mean().sort_values('Salary'))
