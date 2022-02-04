@@ -2,6 +2,7 @@ from openpyxl.workbook import Workbook
 from openpyxl import load_workbook
 from openpyxl.styles import Font, colors, Color, Alignment, PatternFill, GradientFill, Border, Side
 from openpyxl.styles import NamedStyle
+from openpyxl.chart import PieChart, Reference, Series, PieChart3D
 import openpyxl
 
 # Create a new workbook
@@ -90,11 +91,23 @@ ws = wb.active
 
 # Create a simple data set
 data = [['Food', 'Price'],
-        ['Cheeseburger', '2.00'],
-        ['Chicken Tendies', '5.00'],
-        ['Chicken Caesar Salad', '8.00'],
-        ['Pepperoni Pizza', '2.50']]
+        ['Cheeseburger', 2.00],
+        ['Chicken Tendies', 5.00],
+        ['Chicken Caesar Salad', 8.00],
+        ['Pepperoni Pizza', 2.50]]
 
 # Append this data set to the worksheet using a for loop.
 for rows in data:
     ws.append(rows)
+
+# Create a Pie chart of the data.
+chart = PieChart()
+labels = Reference(ws, min_col=1, min_row=2, max_row=5)
+data = Reference(ws, min_col=2, min_row=1, max_row=5)
+
+chart.add_data(data, titles_from_data=True)
+chart.set_categories(labels)
+chart.title = 'Food by Price'
+
+ws.add_chart(chart, 'C1')
+wb.save('Pie.xlsx')
