@@ -29,3 +29,10 @@ df_csv['Tax %'] = df_csv['Salary'].apply(lambda x: .15 if 10000 < x < 40000 else
 print(df_csv)
 
 # Create a 'Taxes Owed' column
+df_csv['Taxes Owed'] = df_csv['Salary'] * df_csv['Tax %']
+
+# Create a 'Sal After Tax' column
+df_csv['Sal After Tax'] = df_csv['Salary'] - df_csv['Taxes Owed']
+print(df_csv)
+
+# Drop columns
