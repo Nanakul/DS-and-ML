@@ -68,3 +68,18 @@ cell.alignment = Alignment(horizontal='right', vertical='bottom')
 cell.fill = GradientFill(stop=('000000', 'FFFFFF'))
 
 wb.save('text.xlsx')
+
+# Storing styles
+highlight = NamedStyle(name='highlight')
+highlight.font = Font(bold=True)
+bd = Side(style='thick', color='000000')
+highlight.border = Border(left=bd, top=bd, right=bd, bottom=bd)
+highlight.fill = PatternFill('solid', fgColor='FFFF00')
+
+# Apply this style to every cell DIAGONALLY, starting at the H column.
+count = 0
+for col in ws.iter_cols(min_col=8, min_row=1, max_col=30, max_row=30):
+    col[count].style = highlight
+    count += 1
+
+wb.save('highlight.xlsx')
