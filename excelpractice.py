@@ -36,3 +36,13 @@ df_csv['Sal After Tax'] = df_csv['Salary'] - df_csv['Taxes Owed']
 print(df_csv)
 
 # Drop columns
+to_drop = ['Zip', 'First', 'Address']
+df_csv.drop(columns=to_drop, inplace=True)
+print(df_csv)
+
+# Create Conditional Check Column of Bools
+df_csv['Conditional'] = False
+
+# Change Conditional column to True IF Salary < 60000
+df_csv.loc[df_csv['Salary'] < 60000, 'Conditional'] = True
+print(df_csv)
