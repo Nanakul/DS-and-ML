@@ -38,3 +38,20 @@ ws['O8'].value = total_crimes
 ws['P8'].value = counterfeit
 ws['Q8'].value = perc_crimes
 
+# Counterfeiting crimes occuring each year by district. Create a count column to measure.
+# Use the unstack function to make it look clean.
+df1['Count'] = 1
+df2 = df1.groupby(['DISTRICT', 'YEAR']).count()['Count'].unstack(level=0)
+
+# Drop the N/A Column
+df2.drop(columns='N/A', inplace=True)
+
+# Convert to openpyxl format
+rows = dataframe_to_rows(df2)
+
+# Add data to template starting at A8 using nested for loop (enumerate)
+for r_idx, row in enumerate(rows, 8):
+    for c_idx, value in enumerate(row, 1):
+        ws.cell(row=r_idx, column=c_idx, value=value)
+
+wb.save('crime_report.xlsx')
