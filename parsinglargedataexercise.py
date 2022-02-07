@@ -23,3 +23,18 @@ df = pd.read_csv('crime.csv', encoding='utf-8', dtype={'INCIDENT_NUMBER': str,
 
 # Search for offense code Counterfeiting
 df1 = df[df['OFFENSE_CODE_GROUP'] == 'Counterfeiting']
+
+# Use numpy to replace all NaN values
+df1 = df1.replace(np.nan, 'N/A', regex=True)
+
+# Extract some stats. Take total # of crimes, total number of counterfeiting crimes, and create a %.
+total_crimes = len(df.index)
+counterfeit = len(df1.index)
+perc_crimes = (counterfeit / total_crimes) * 100
+perc_crimes = round(perc_crimes, 2)
+
+# Paste data to corresponding columns
+ws['O8'].value = total_crimes
+ws['P8'].value = counterfeit
+ws['Q8'].value = perc_crimes
+
