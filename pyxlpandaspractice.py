@@ -21,3 +21,14 @@ total_col = ws['G1']
 total_col.font = Font(bold=True)
 total_col.value = 'Total'
 
+# Create two variables to store strings for columns E and F
+e_col, f_col = ['E', 'F']
+
+# Create for loop to iterate through all the columns
+for row in range(2,300):
+    result_cell = 'G{}'.format(row)
+    e_value = ws[e_col + str(row)].value
+    f_value = ws[f_col + str(row)].value
+    ws[result_cell] = e_value * f_value
+
+wb.save('totaled.xlsx')
