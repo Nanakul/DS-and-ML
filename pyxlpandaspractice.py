@@ -45,3 +45,13 @@ df1 = df[['Sales Rep', 'Cost per', 'Units Sold']]
 # Create new Total Column
 df1['Total'] = df1['Cost per'] * df1['Units Sold']
 print(df1)
+
+# Initialize dataframe to rows
+rows = dataframe_to_rows(df1, index=False)
+
+# Use worksheet cell function to enumerate through a nested for loop
+for r_idx, row in enumerate(rows, 1):
+    for c_idx, col in enumerate(row, 6):
+        ws.cell(row=r_idx, column=c_idx, value=col)
+
+wb.save('combined.xlsx')
