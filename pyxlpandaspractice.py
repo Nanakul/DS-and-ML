@@ -1,6 +1,7 @@
 import pandas as pd
 from openpyxl import load_workbook
 from openpyxl.styles import Font
+from openpyxl.utils.dataframe import dataframe_to_rows
 
 df_1 = pd.read_excel('shifts.xlsx', sheet_name='Sheet')
 df_2 = pd.read_excel('shifts.xlsx', sheet_name='Sheet1')
@@ -32,3 +33,15 @@ for row in range(2,300):
     ws[result_cell] = e_value * f_value
 
 wb.save('totaled.xlsx')
+
+# Load in the regions.xlsx
+wb = load_workbook('regions.xlsx')
+ws = wb.active
+df = pd.read_excel('all_shifts.xlsx')
+
+# Create new DF to reflect Sales Rep, Cost per unit, and units sold
+df1 = df[['Sales Rep', 'Cost per', 'Units Sold']]
+
+# Create new Total Column
+df1['Total'] = df1['Cost per'] * df1['Units Sold']
+print(df1)
